@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react"
-import { StaticQuery, graphql } from "gatsby"
-import PropTypes from "prop-types"
-import { Head, Loader, Nav, Social, Email, Footer } from "@components"
-import styled from "styled-components"
-import { GlobalStyle, theme } from "@styles"
-const { colors, fontSizes, fonts } = theme
+import React, { useState, useEffect } from 'react';
+import { StaticQuery, graphql } from 'gatsby';
+import PropTypes from 'prop-types';
+import { Head, Nav, Social, Email, Footer } from '@components';
+import styled from 'styled-components';
+import { GlobalStyle, theme } from '@styles';
+const { colors, fontSizes, fonts } = theme;
 
 const SkipToContent = styled.a`
   position: absolute;
@@ -37,26 +37,25 @@ const SkipToContent = styled.a`
     overflow: auto;
     z-index: 99;
   }
-`
+`;
 
 const Layout = ({ children }) => {
-  const [isLoading, setIsLoading] = useState(true)
   const [githubInfo, setGithubInfo] = useState({
     stars: null,
     forks: null,
-  })
+  });
 
   useEffect(() => {
-    fetch("https://api.github.com/repos/archish27/personal-website")
+    fetch('https://api.github.com/repos/archish27/personal-website')
       .then(response => response.json())
       .then(json => {
-        const { stargazers_count, forks_count } = json
+        const { stargazers_count, forks_count } = json;
         setGithubInfo({
           stars: stargazers_count,
           forks: forks_count,
-        })
-      })
-  }, [])
+        });
+      });
+  }, []);
 
   return (
     <StaticQuery
@@ -79,25 +78,21 @@ const Layout = ({ children }) => {
 
           <SkipToContent href="#content">Skip to Content</SkipToContent>
 
-          {isLoading ? (
-            <Loader finishLoading={() => setIsLoading(false)} />
-          ) : (
-            <div className="container">
-              <Nav />
-              <Social />
-              <Email />
-              {children}
-              <Footer githubInfo={githubInfo} />
-            </div>
-          )}
+          <div className="container">
+            <Nav />
+            <Social />
+            <Email />
+            {children}
+            <Footer githubInfo={githubInfo} />
+          </div>
         </div>
       )}
     />
-  )
-}
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;

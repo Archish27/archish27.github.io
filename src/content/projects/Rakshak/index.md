@@ -3,6 +3,7 @@ date: "2016-11-16"
 title: "Rakshak - Life Saviour"
 image: ""
 github: "https://github.com/archish27/rakshak"
+external: ""
 tech:
   - Android
   - JS
