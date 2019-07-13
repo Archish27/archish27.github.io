@@ -1,7 +1,7 @@
-import styled from 'styled-components';
-import theme from './theme';
-import media from './media';
-const { colors, fontSizes, fonts } = theme;
+import styled from "styled-components"
+import theme from "./theme"
+import media from "./media"
+const { colors, fontSizes, fonts } = theme
 
 const Heading = styled.h3`
   position: relative;
@@ -15,11 +15,11 @@ const Heading = styled.h3`
 
   &:before {
     counter-increment: section;
-    content: '0' counter(section) '.';
+    content: "0" counter(section) ".";
     margin-right: 10px;
     font-family: ${fonts.SFMono};
     font-weight: normal;
-    color: ${colors.green};
+    color: ${colors.blue};
     font-size: ${fontSizes.xlarge};
     position: relative;
     bottom: 4px;
@@ -27,7 +27,7 @@ const Heading = styled.h3`
   }
 
   &:after {
-    content: '';
+    content: "";
     display: block;
     height: 1px;
     width: 300px;
@@ -39,6 +39,6 @@ const Heading = styled.h3`
     ${media.tablet`width: 100%;`};
     ${media.thone`margin-left: 10px;`};
   }
-`;
+`
 
-export default Heading;
+export default Heading

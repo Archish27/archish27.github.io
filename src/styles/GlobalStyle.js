@@ -1,8 +1,8 @@
-import { createGlobalStyle } from 'styled-components';
-import theme from './theme';
-import media from './media';
-import * as fontFamilies from './fonts';
-const { colors, fontSizes, fonts } = theme;
+import { createGlobalStyle } from "styled-components"
+import theme from "./theme"
+import media from "./media"
+import * as fontFamilies from "./fonts"
+const { colors, fontSizes, fonts } = theme
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -150,7 +150,7 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    background-color: ${colors.navy};
+    background-color: ${colors.darkestNavy};
     color: ${colors.slate};
     line-height: 1.3;
     font-family: ${fonts.Calibre};
@@ -217,7 +217,7 @@ const GlobalStyle = createGlobalStyle`
 
     &:hover,
     &:focus {
-      color: ${colors.green};
+      color: ${colors.blue};
       outline: 0;
     }
   }
@@ -298,6 +298,6 @@ const GlobalStyle = createGlobalStyle`
     transition: opacity 1000ms ${theme.easing};
   }
 
-`;
+`
 
-export default GlobalStyle;
+export default GlobalStyle

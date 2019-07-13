@@ -1,11 +1,11 @@
-import styled from 'styled-components';
-import theme from './theme';
-const { colors, fontSizes, fonts } = theme;
+import styled from "styled-components"
+import theme from "./theme"
+const { colors, fontSizes, fonts } = theme
 
 const Button = styled.button`
-  color: ${colors.green};
+  color: ${colors.blue};
   background-color: transparent;
-  border: 1px solid ${colors.green};
+  border: 1px solid ${colors.blue};
   border-radius: ${theme.borderRadius};
   font-size: ${fontSizes.smallish};
   font-family: ${fonts.SFMono};
@@ -18,12 +18,12 @@ const Button = styled.button`
   &:hover,
   &:focus,
   &:active {
-    background-color: ${colors.transGreen};
+    background-color: ${colors.transNavy};
     outline: none;
   }
   &:after {
     display: none !important;
   }
-`;
+`
 
-export default Button;
+export default Button

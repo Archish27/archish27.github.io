@@ -1,15 +1,19 @@
 ---
-title: 'About Me'
-avatar: './me.jpg'
+title: "About Me"
+avatar: "./me1.jpg"
 skills:
+  - Java
+  - C/C++
+  - Python
   - JavaScript (ES6+)
+  - Php
   - HTML & (S)CSS
-  - React
-  - Vue
-  - Node.js
-  - Express
-  - GraphQL
-  - NativeScript
+  - React.js
+  - SpringBoot
+  - Android
+  - Kotlin
+  - Scala
+  - Groovy
 ---
 
 Hello! I'm Archish, a software engineer based in Mumbai, India who enjoys building things that live on the internet. I develop exceptional softwares, websites and web apps that provide intuitive, pixel-perfect user interfaces with efficient and modern backends.

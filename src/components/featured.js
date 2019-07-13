@@ -1,18 +1,18 @@
-import React, { useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
-import Img from 'gatsby-image';
-import sr from '@utils/sr';
-import { srConfig } from '@config';
-import { IconGithub, IconExternal } from '@components/icons';
-import styled from 'styled-components';
-import { theme, mixins, media, Section, Heading } from '@styles';
-const { colors, fontSizes, fonts } = theme;
+import React, { useEffect, useRef } from "react"
+import PropTypes from "prop-types"
+import Img from "gatsby-image"
+import sr from "@utils/sr"
+import { srConfig } from "@config"
+import { IconGithub, IconExternal } from "@components/icons"
+import styled from "styled-components"
+import { theme, mixins, media, Section, Heading } from "@styles"
+const { colors, fontSizes, fonts } = theme
 
 const FeaturedContainer = styled(Section)`
   ${mixins.flexCenter};
   flex-direction: column;
   align-items: flex-start;
-`;
+`
 const ContentContainer = styled.div`
   position: relative;
   z-index: 2;
@@ -23,15 +23,15 @@ const ContentContainer = styled.div`
     padding: 40px 40px 30px;
   `};
   ${media.phablet`padding: 30px 25px 20px;`};
-`;
+`
 const FeaturedLabel = styled.h4`
   font-size: ${fontSizes.smallish};
   font-weight: normal;
-  color: ${colors.green};
+  color: ${colors.blue};
   font-family: ${fonts.SFMono};
   margin-top: 10px;
   padding-top: 0;
-`;
+`
 const ProjectName = styled.h5`
   font-size: 28px;
   font-weight: 600;
@@ -41,7 +41,7 @@ const ProjectName = styled.h5`
   a {
     ${media.tablet`display: block;`};
   }
-`;
+`
 const ProjectDescription = styled.div`
   ${mixins.boxShadow};
   background-color: ${colors.lightNavy};
@@ -60,7 +60,7 @@ const ProjectDescription = styled.div`
     ${mixins.inlineLink};
     color: ${colors.white};
   }
-`;
+`
 const TechList = styled.ul`
   display: flex;
   flex-wrap: wrap;
@@ -80,7 +80,7 @@ const TechList = styled.ul`
       margin-right: 10px;
     `};
   }
-`;
+`
 const Links = styled.div`
   display: flex;
   align-items: center;
@@ -94,7 +94,7 @@ const Links = styled.div`
       height: 22px;
     }
   }
-`;
+`
 const FeaturedImg = styled(Img)`
   width: 100%;
   max-width: 100%;
@@ -109,14 +109,14 @@ const FeaturedImg = styled(Img)`
     height: 100%;
     filter: grayscale(100%) contrast(1) brightness(80%);
   `};
-`;
+`
 const ImgContainer = styled.a`
   ${mixins.boxShadow};
   grid-column: 6 / -1;
   grid-row: 1 / -1;
   position: relative;
   z-index: 1;
-  background-color: ${colors.green};
+  background-color: ${colors.blue};
   border-radius: ${theme.radius + 1}px;
   transition: ${theme.transition};
   ${media.tablet`height: 100%;`};
@@ -134,7 +134,7 @@ const ImgContainer = styled.a`
     }
   }
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     width: 100%;
     height: 100%;
@@ -144,10 +144,10 @@ const ImgContainer = styled.a`
     bottom: 0;
     z-index: 3;
     transition: ${theme.transition};
-    background-color: ${colors.navy};
+    background-color: ${colors.darkestNavy};
     mix-blend-mode: screen;
   }
-`;
+`
 const Project = styled.div`
   display: grid;
   grid-gap: 10px;
@@ -189,17 +189,21 @@ const Project = styled.div`
       `};
     }
   }
-`;
+`
 
 const Featured = ({ data }) => {
-  const revealTitle = useRef(null);
-  const revealProjects = useRef([]);
+  const revealTitle = useRef(null)
+  const revealProjects = useRef([])
   useEffect(() => {
-    sr.reveal(revealTitle.current, srConfig());
-    revealProjects.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 100)));
-  }, []);
+    sr.reveal(revealTitle.current, srConfig())
+    revealProjects.current.forEach((ref, i) =>
+      sr.reveal(ref, srConfig(i * 100))
+    )
+  }, [])
 
-  const featuredProjects = data.filter(({ node }) => node.frontmatter.show === 'true');
+  const featuredProjects = data.filter(
+    ({ node }) => node.frontmatter.show === "true"
+  )
 
   return (
     <FeaturedContainer id="projects">
@@ -208,8 +212,8 @@ const Featured = ({ data }) => {
       <div>
         {featuredProjects &&
           featuredProjects.map(({ node }, i) => {
-            const { frontmatter, html } = node;
-            const { external, title, tech, github, cover } = frontmatter;
+            const { frontmatter, html } = node
+            const { external, title, tech, github, cover } = frontmatter
 
             return (
               <Project key={i} ref={el => (revealProjects.current[i] = el)}>
@@ -221,14 +225,17 @@ const Featured = ({ data }) => {
                         href={external}
                         target="_blank"
                         rel="nofollow noopener noreferrer"
-                        aria-label="External Link">
+                        aria-label="External Link"
+                      >
                         {title}
                       </a>
                     ) : (
                       title
                     )}
                   </ProjectName>
-                  <ProjectDescription dangerouslySetInnerHTML={{ __html: html }} />
+                  <ProjectDescription
+                    dangerouslySetInnerHTML={{ __html: html }}
+                  />
                   {tech && (
                     <TechList>
                       {tech.map((tech, i) => (
@@ -242,7 +249,8 @@ const Featured = ({ data }) => {
                         href={github}
                         target="_blank"
                         rel="nofollow noopener noreferrer"
-                        aria-label="Github Link">
+                        aria-label="Github Link"
+                      >
                         <IconGithub />
                       </a>
                     )}
@@ -251,7 +259,8 @@ const Featured = ({ data }) => {
                         href={external}
                         target="_blank"
                         rel="nofollow noopener noreferrer"
-                        aria-label="External Link">
+                        aria-label="External Link"
+                      >
                         <IconExternal />
                       </a>
                     )}
@@ -259,21 +268,22 @@ const Featured = ({ data }) => {
                 </ContentContainer>
 
                 <ImgContainer
-                  href={external ? external : github ? github : '#'}
+                  href={external ? external : github ? github : "#"}
                   target="_blank"
-                  rel="nofollow noopener noreferrer">
+                  rel="nofollow noopener noreferrer"
+                >
                   <FeaturedImg fluid={cover.childImageSharp.fluid} />
                 </ImgContainer>
               </Project>
-            );
+            )
           })}
       </div>
     </FeaturedContainer>
-  );
-};
+  )
+}
 
 Featured.propTypes = {
   data: PropTypes.array.isRequired,
-};
+}
 
-export default Featured;
+export default Featured

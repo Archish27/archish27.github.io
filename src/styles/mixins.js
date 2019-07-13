@@ -1,7 +1,7 @@
-import { css } from 'styled-components';
-import theme from './theme';
-import media from './media';
-const { colors, fontSizes, fonts } = theme;
+import { css } from "styled-components"
+import theme from "./theme"
+import media from "./media"
+const { colors, fontSizes, fonts } = theme
 
 const mixins = {
   flexCenter: css`
@@ -31,7 +31,7 @@ const mixins = {
     &:hover,
     &:active,
     &:focus {
-      color: ${colors.green};
+      color: ${colors.blue};
       outline: 0;
     }
   `,
@@ -43,33 +43,33 @@ const mixins = {
     position: relative;
     transition: ${theme.transition};
     cursor: pointer;
-    color: ${colors.green};
+    color: ${colors.blue};
     &:hover,
     &:focus,
     &:active {
-      color: ${colors.green};
+      color: ${colors.blue};
       outline: 0;
       &:after {
         width: 100%;
       }
     }
     &:after {
-      content: '';
+      content: "";
       display: block;
       width: 0;
       height: 1px;
       position: relative;
       bottom: 0.37em;
-      background-color: ${colors.green};
+      background-color: ${colors.blue};
       transition: ${theme.transition};
       opacity: 0.5;
     }
   `,
 
   smallButton: css`
-    color: ${colors.green};
+    color: ${colors.blue};
     background-color: transparent;
-    border: 1px solid ${colors.green};
+    border: 1px solid ${colors.blue};
     border-radius: ${theme.borderRadius};
     padding: 0.75rem 1rem;
     font-size: ${fontSizes.smallish};
@@ -81,7 +81,7 @@ const mixins = {
     &:hover,
     &:focus,
     &:active {
-      background-color: ${colors.transGreen};
+      background-color: ${colors.transNavy};
     }
     &:after {
       display: none !important;
@@ -89,9 +89,9 @@ const mixins = {
   `,
 
   bigButton: css`
-    color: ${colors.green};
+    color: ${colors.blue};
     background-color: transparent;
-    border: 1px solid ${colors.green};
+    border: 1px solid ${colors.blue};
     border-radius: ${theme.borderRadius};
     padding: 1.25rem 1.75rem;
     font-size: ${fontSizes.small};
@@ -103,7 +103,7 @@ const mixins = {
     &:hover,
     &:focus,
     &:active {
-      background-color: ${colors.transGreen};
+      background-color: ${colors.transNavy};
     }
     &:after {
       display: none !important;
@@ -118,14 +118,14 @@ const mixins = {
   `,
 
   boxShadow: css`
-    box-shadow: 0 10px 30px -15px ${colors.shadowNavy};
+    box-shadow: 0 10px 30px -15px ${colors.darkNavy};
     transition: ${theme.transition};
 
     &:hover,
     &:focus {
-      box-shadow: 0 20px 30px -15px ${colors.shadowNavy};
+      box-shadow: 0 20px 30px -15px ${colors.darkNavy};
     }
   `,
-};
+}
 
-export default mixins;
+export default mixins

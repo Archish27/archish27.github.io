@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import Helmet from 'react-helmet';
-import PropTypes from 'prop-types';
-import anime from 'animejs';
-import { IconLoader } from '@components/icons';
-import styled from 'styled-components';
-import { theme, mixins } from '@styles';
-const { colors } = theme;
+import React, { useState, useEffect } from "react"
+import Helmet from "react-helmet"
+import PropTypes from "prop-types"
+import anime from "animejs"
+import { IconLoader } from "@components/icons"
+import styled from "styled-components"
+import { theme, mixins } from "@styles"
+const { colors } = theme
 
 const LoaderContainer = styled.div`
   ${mixins.flexCenter};
-  background-color: ${colors.darkNavy};
+  background-color: ${colors.darkestNavy};
   position: fixed;
   width: 100%;
   height: 100%;
@@ -18,7 +18,7 @@ const LoaderContainer = styled.div`
   left: 0;
   right: 0;
   z-index: 99;
-`;
+`
 const LogoWrapper = styled.div`
   width: max-content;
   max-width: 100px;
@@ -31,56 +31,56 @@ const LogoWrapper = styled.div`
     margin: 0 auto;
     fill: none;
     user-select: none;
-    #B {
+    #A {
       opacity: 0;
     }
   }
-`;
+`
 
 const Loader = ({ finishLoading }) => {
   const animate = () => {
     const loader = anime.timeline({
       complete: () => finishLoading(),
-    });
+    })
 
     loader
       .add({
-        targets: '#logo path',
+        targets: "#logo path",
         delay: 500,
         duration: 2000,
-        easing: 'easeInOutQuart',
+        easing: "easeInOutQuart",
         strokeDashoffset: [anime.setDashoffset, 0],
       })
       .add({
-        targets: '#logo #B',
+        targets: "#logo #A",
         duration: 800,
-        easing: 'easeInOutQuart',
+        easing: "easeInOutQuart",
         opacity: 1,
       })
       .add({
-        targets: '#logo',
+        targets: "#logo",
         delay: 700,
         duration: 300,
-        easing: 'easeInOutQuart',
+        easing: "easeInOutQuart",
         opacity: 0,
         scale: 0.1,
       })
       .add({
-        targets: '.loader',
+        targets: ".loader",
         duration: 200,
-        easing: 'easeInOutQuart',
+        easing: "easeInOutQuart",
         opacity: 0,
         zIndex: -1,
-      });
-  };
+      })
+  }
 
-  const [isMounted, setIsMounted] = useState(false);
+  const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
-    const timeout = setTimeout(() => setIsMounted(true), 10);
-    animate();
-    return () => clearTimeout(timeout);
-  }, []);
+    const timeout = setTimeout(() => setIsMounted(true), 10)
+    animate()
+    return () => clearTimeout(timeout)
+  }, [])
 
   return (
     <LoaderContainer className="loader">
@@ -90,11 +90,11 @@ const Loader = ({ finishLoading }) => {
         <IconLoader />
       </LogoWrapper>
     </LoaderContainer>
-  );
-};
+  )
+}
 
 Loader.propTypes = {
   finishLoading: PropTypes.func.isRequired,
-};
+}
 
-export default Loader;
+export default Loader

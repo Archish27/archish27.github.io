@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import theme from './theme';
-const { colors } = theme;
+import styled from "styled-components"
+import theme from "./theme"
+const { colors } = theme
 
 const InlineLink = styled.a`
   display: inline-block;
@@ -9,26 +9,26 @@ const InlineLink = styled.a`
   position: relative;
   transition: ${theme.transition};
   cursor: pointer;
-  color: ${colors.green};
+  color: ${colors.blue};
   &:hover,
   &:focus,
   &:active {
-    color: ${colors.green};
+    color: ${colors.blue};
     outline: 0;
     &:after {
       width: 100%;
     }
   }
   &:after {
-    content: '';
+    content: "";
     display: block;
     width: 0;
     height: 1px;
     position: relative;
     bottom: 0.37em;
-    background-color: ${colors.green};
+    background-color: ${colors.blue};
     transition: ${theme.transition};
   }
-`;
+`
 
-export default InlineLink;
+export default InlineLink

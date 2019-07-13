@@ -1,15 +1,15 @@
-import React, { useState, useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
-import sr from '@utils/sr';
-import { srConfig } from '@config';
-import styled from 'styled-components';
-import { theme, mixins, media, Section, Heading } from '@styles';
-const { colors, fontSizes, fonts } = theme;
+import React, { useState, useEffect, useRef } from "react"
+import PropTypes from "prop-types"
+import sr from "@utils/sr"
+import { srConfig } from "@config"
+import styled from "styled-components"
+import { theme, mixins, media, Section, Heading } from "@styles"
+const { colors, fontSizes, fonts } = theme
 
 const JobsContainer = styled(Section)`
   position: relative;
   max-width: 700px;
-`;
+`
 const TabsContainer = styled.div`
   display: flex;
   align-items: flex-start;
@@ -17,7 +17,7 @@ const TabsContainer = styled.div`
   ${media.thone`
     display: block;
   `};
-`;
+`
 const Tabs = styled.ul`
   display: block;
   position: relative;
@@ -53,7 +53,7 @@ const Tabs = styled.ul`
       `};
     }
   }
-`;
+`
 const Tab = styled.button`
   ${mixins.link};
   display: flex;
@@ -68,7 +68,7 @@ const Tab = styled.button`
   white-space: nowrap;
   font-family: ${fonts.SFMono};
   font-size: ${fontSizes.smallish};
-  color: ${props => (props.isActive ? colors.green : colors.lightGrey)};
+  color: ${props => (props.isActive ? colors.blue : colors.lightGrey)};
   ${media.tablet`padding: 0 15px 2px;`};
   ${media.thone`
     ${mixins.flexCenter};
@@ -82,10 +82,10 @@ const Tab = styled.button`
   &:focus {
     background-color: ${colors.lightNavy};
   }
-`;
+`
 const Highlighter = styled.span`
   display: block;
-  background: ${colors.green};
+  background: ${colors.blue};
   width: 2px;
   height: ${theme.tabHeight}px;
   border-radius: ${theme.borderRadius};
@@ -96,7 +96,8 @@ const Highlighter = styled.span`
   transition-delay: 0.1s;
   z-index: 10;
   transform: translateY(
-    ${props => (props.activeTabId > 0 ? props.activeTabId * theme.tabHeight : 0)}px
+    ${props =>
+      props.activeTabId > 0 ? props.activeTabId * theme.tabHeight : 0}px
   );
   ${media.thone`
     width: 100%;
@@ -105,14 +106,15 @@ const Highlighter = styled.span`
     top: auto;
     bottom: 0;
     transform: translateX(
-      ${props => (props.activeTabId > 0 ? props.activeTabId * theme.tabWidth : 0)}px
+      ${props =>
+        props.activeTabId > 0 ? props.activeTabId * theme.tabWidth : 0}px
     );
     margin-left: 50px;
   `};
   ${media.phablet`
     margin-left: 25px;
   `};
-`;
+`
 const ContentContainer = styled.div`
   position: relative;
   padding-top: 12px;
@@ -120,7 +122,7 @@ const ContentContainer = styled.div`
   flex-grow: 1;
   ${media.tablet`padding-left: 20px;`};
   ${media.thone`padding-left: 0;`};
-`;
+`
 const TabContent = styled.div`
   top: 0;
   left: 0;
@@ -128,10 +130,10 @@ const TabContent = styled.div`
   height: auto;
   opacity: ${props => (props.isActive ? 1 : 0)};
   z-index: ${props => (props.isActive ? 2 : -1)};
-  position: ${props => (props.isActive ? 'relative' : 'absolute')};
-  visibility: ${props => (props.isActive ? 'visible' : 'hidden')};
+  position: ${props => (props.isActive ? "relative" : "absolute")};
+  visibility: ${props => (props.isActive ? "visible" : "hidden")};
   transition: ${theme.transition};
-  transition-duration: ${props => (props.isActive ? '0.5s' : '0s')};
+  transition-duration: ${props => (props.isActive ? "0.5s" : "0s")};
   ul {
     padding: 0;
     margin: 0;
@@ -142,10 +144,10 @@ const TabContent = styled.div`
       padding-left: 30px;
       margin-bottom: 10px;
       &:before {
-        content: '▹';
+        content: "▹";
         position: absolute;
         left: 0;
-        color: ${colors.green};
+        color: ${colors.blue};
         line-height: ${fontSizes.xlarge};
       }
     }
@@ -153,16 +155,16 @@ const TabContent = styled.div`
   a {
     ${mixins.inlineLink};
   }
-`;
+`
 const JobTitle = styled.h4`
   color: ${colors.lightestSlate};
   font-size: ${fontSizes.xxlarge};
   font-weight: 500;
   margin-bottom: 5px;
-`;
+`
 const Company = styled.span`
-  color: ${colors.green};
-`;
+  color: ${colors.blue};
+`
 const JobDetails = styled.h5`
   font-family: ${fonts.SFMono};
   font-size: ${fontSizes.smallish};
@@ -173,12 +175,12 @@ const JobDetails = styled.h5`
   svg {
     width: 15px;
   }
-`;
+`
 
 const Jobs = ({ data }) => {
-  const [activeTabId, setActiveTabId] = useState(0);
-  const revealContainer = useRef(null);
-  useEffect(() => sr.reveal(revealContainer.current, srConfig()), []);
+  const [activeTabId, setActiveTabId] = useState(0)
+  const revealContainer = useRef(null)
+  useEffect(() => sr.reveal(revealContainer.current, srConfig()), [])
 
   return (
     <JobsContainer id="jobs" ref={revealContainer}>
@@ -187,29 +189,30 @@ const Jobs = ({ data }) => {
         <Tabs role="tablist">
           {data &&
             data.map(({ node }, i) => {
-              const { company } = node.frontmatter;
+              const { company } = node.frontmatter
               return (
                 <li key={i}>
                   <Tab
                     isActive={activeTabId === i}
                     onClick={() => setActiveTabId(i)}
                     role="tab"
-                    aria-selected={activeTabId === i ? 'true' : 'false'}
+                    aria-selected={activeTabId === i ? "true" : "false"}
                     aria-controls={`tab${i}`}
                     id={`tab${i}`}
-                    tabIndex={activeTabId === i ? '0' : '-1'}>
+                    tabIndex={activeTabId === i ? "0" : "-1"}
+                  >
                     <span>{company}</span>
                   </Tab>
                 </li>
-              );
+              )
             })}
           <Highlighter activeTabId={activeTabId} />
         </Tabs>
         <ContentContainer>
           {data &&
             data.map(({ node }, i) => {
-              const { frontmatter, html } = node;
-              const { title, url, company, range } = frontmatter;
+              const { frontmatter, html } = node
+              const { title, url, company, range } = frontmatter
               return (
                 <TabContent
                   key={i}
@@ -218,12 +221,17 @@ const Jobs = ({ data }) => {
                   role="tabpanel"
                   tabIndex="0"
                   aria-labelledby={`job${i}`}
-                  aria-hidden={activeTabId !== i}>
+                  aria-hidden={activeTabId !== i}
+                >
                   <JobTitle>
                     <span>{title}</span>
                     <Company>
                       <span>&nbsp;@&nbsp;</span>
-                      <a href={url} target="_blank" rel="nofollow noopener noreferrer">
+                      <a
+                        href={url}
+                        target="_blank"
+                        rel="nofollow noopener noreferrer"
+                      >
                         {company}
                       </a>
                     </Company>
@@ -233,16 +241,16 @@ const Jobs = ({ data }) => {
                   </JobDetails>
                   <div dangerouslySetInnerHTML={{ __html: html }} />
                 </TabContent>
-              );
+              )
             })}
         </ContentContainer>
       </TabsContainer>
     </JobsContainer>
-  );
-};
+  )
+}
 
 Jobs.propTypes = {
   data: PropTypes.array.isRequired,
-};
+}
 
-export default Jobs;
+export default Jobs

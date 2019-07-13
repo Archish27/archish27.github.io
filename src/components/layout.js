@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { StaticQuery, graphql } from 'gatsby';
-import PropTypes from 'prop-types';
-import { Head, Loader, Nav, Social, Email, Footer } from '@components';
-import styled from 'styled-components';
-import { GlobalStyle, theme } from '@styles';
-const { colors, fontSizes, fonts } = theme;
+import React, { useState, useEffect } from "react"
+import { StaticQuery, graphql } from "gatsby"
+import PropTypes from "prop-types"
+import { Head, Loader, Nav, Social, Email, Footer } from "@components"
+import styled from "styled-components"
+import { GlobalStyle, theme } from "@styles"
+const { colors, fontSizes, fonts } = theme
 
 const SkipToContent = styled.a`
   position: absolute;
@@ -20,7 +20,7 @@ const SkipToContent = styled.a`
   &:focus,
   &:active {
     outline: 0;
-    color: ${colors.green};
+    color: ${colors.blue};
     background-color: ${colors.lightNavy};
     border-radius: ${theme.borderRadius};
     padding: 18px 23px;
@@ -37,26 +37,26 @@ const SkipToContent = styled.a`
     overflow: auto;
     z-index: 99;
   }
-`;
+`
 
 const Layout = ({ children }) => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true)
   const [githubInfo, setGithubInfo] = useState({
     stars: null,
     forks: null,
-  });
+  })
 
   useEffect(() => {
-    fetch('https://api.github.com/repos/bchiang7/v4')
+    fetch("https://api.github.com/repos/archish27/personal-website")
       .then(response => response.json())
       .then(json => {
-        const { stargazers_count, forks_count } = json;
+        const { stargazers_count, forks_count } = json
         setGithubInfo({
           stars: stargazers_count,
           forks: forks_count,
-        });
-      });
-  }, []);
+        })
+      })
+  }, [])
 
   return (
     <StaticQuery
@@ -93,11 +93,11 @@ const Layout = ({ children }) => {
         </div>
       )}
     />
-  );
-};
+  )
+}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-};
+}
 
-export default Layout;
+export default Layout

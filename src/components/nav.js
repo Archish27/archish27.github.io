@@ -1,36 +1,40 @@
-import React, { Component } from 'react';
-import Helmet from 'react-helmet';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import AnchorLink from 'react-anchor-link-smooth-scroll';
-import { throttle } from '@utils';
-import { navLinks, navHeight } from '@config';
-import { Menu } from '@components';
-import { IconLogo } from '@components/icons';
-import styled from 'styled-components';
-import { theme, mixins, media } from '@styles';
-const { colors, fontSizes, fonts } = theme;
+import React, { Component } from "react"
+import Helmet from "react-helmet"
+import { CSSTransition, TransitionGroup } from "react-transition-group"
+import AnchorLink from "react-anchor-link-smooth-scroll"
+import { throttle } from "@utils"
+import { navLinks, navHeight } from "@config"
+import { Menu } from "@components"
+import { IconLogo } from "@components/icons"
+import styled from "styled-components"
+import { theme, mixins, media } from "@styles"
+const { colors, fontSizes, fonts } = theme
 
 const NavContainer = styled.header`
   ${mixins.flexBetween};
   position: fixed;
   top: 0;
   padding: 0px 50px;
-  background-color: ${colors.navy};
+  background-color: ${colors.darkestNavy};
   transition: ${theme.transition};
   z-index: 11;
   filter: none !important;
   pointer-events: auto !important;
   user-select: auto !important;
   width: 100%;
-  height: ${props => (props.scrollDirection === 'none' ? theme.navHeight : theme.navScrollHeight)};
+  height: ${props =>
+    props.scrollDirection === "none" ? theme.navHeight : theme.navScrollHeight};
   box-shadow: ${props =>
-    props.scrollDirection === 'up' ? `0 10px 30px -10px ${colors.shadowNavy}` : 'none'};
+    props.scrollDirection === "up"
+      ? `0 10px 30px -10px ${colors.darkNavy}`
+      : "none"};
   transform: translateY(
-    ${props => (props.scrollDirection === 'down' ? `-${theme.navScrollHeight}` : '0px')}
+    ${props =>
+      props.scrollDirection === "down" ? `-${theme.navScrollHeight}` : "0px"}
   );
   ${media.desktop`padding: 0 40px;`};
   ${media.tablet`padding: 0 25px;`};
-`;
+`
 const Navbar = styled.nav`
   ${mixins.flexBetween};
   position: relative;
@@ -39,19 +43,19 @@ const Navbar = styled.nav`
   font-family: ${fonts.SFMono};
   counter-reset: item 0;
   z-index: 12;
-`;
+`
 const Logo = styled.div`
   ${mixins.flexCenter};
-`;
+`
 const LogoLink = styled.a`
   display: block;
-  color: ${colors.green};
+  color: ${colors.blue};
   width: 42px;
   height: 42px;
   &:hover,
   &:focus {
     svg {
-      fill: ${colors.transGreen};
+      fill: ${colors.transNavy};
     }
   }
   svg {
@@ -59,7 +63,7 @@ const LogoLink = styled.a`
     transition: ${theme.transition};
     user-select: none;
   }
-`;
+`
 const Hamburger = styled.div`
   ${mixins.flexCenter};
   overflow: visible;
@@ -75,15 +79,15 @@ const Hamburger = styled.div`
   background-color: transparent;
   display: none;
   ${media.tablet`display: flex;`};
-`;
+`
 const HamburgerBox = styled.div`
   position: relative;
   display: inline-block;
   width: ${theme.hamburgerWidth}px;
   height: 24px;
-`;
+`
 const HamburgerInner = styled.div`
-  background-color: ${colors.green};
+  background-color: ${colors.blue};
   position: absolute;
   width: ${theme.hamburgerWidth}px;
   height: 2px;
@@ -96,13 +100,14 @@ const HamburgerInner = styled.div`
   transition-delay: ${props => (props.menuOpen ? `0.12s` : `0s`)};
   transform: rotate(${props => (props.menuOpen ? `225deg` : `0deg`)});
   transition-timing-function: cubic-bezier(
-    ${props => (props.menuOpen ? `0.215, 0.61, 0.355, 1` : `0.55, 0.055, 0.675, 0.19`)}
+    ${props =>
+      props.menuOpen ? `0.215, 0.61, 0.355, 1` : `0.55, 0.055, 0.675, 0.19`}
   );
   &:before,
   &:after {
-    content: '';
+    content: "";
     display: block;
-    background-color: ${colors.green};
+    background-color: ${colors.blue};
     position: absolute;
     left: auto;
     right: 0;
@@ -117,121 +122,123 @@ const HamburgerInner = styled.div`
     width: ${props => (props.menuOpen ? `100%` : `120%`)};
     top: ${props => (props.menuOpen ? `0` : `-10px`)};
     opacity: ${props => (props.menuOpen ? 0 : 1)};
-    transition: ${props => (props.menuOpen ? theme.hamBeforeActive : theme.hamBefore)};
+    transition: ${props =>
+      props.menuOpen ? theme.hamBeforeActive : theme.hamBefore};
   }
   &:after {
     width: ${props => (props.menuOpen ? `100%` : `80%`)};
     bottom: ${props => (props.menuOpen ? `0` : `-10px`)};
     transform: rotate(${props => (props.menuOpen ? `-90deg` : `0`)});
-    transition: ${props => (props.menuOpen ? theme.hamAfterActive : theme.hamAfter)};
+    transition: ${props =>
+      props.menuOpen ? theme.hamAfterActive : theme.hamAfter};
   }
-`;
+`
 const NavLinks = styled.div`
   display: flex;
   align-items: center;
   ${media.tablet`display: none;`};
-`;
+`
 const NavList = styled.ol`
   div {
     ${mixins.flexBetween};
   }
-`;
+`
 const NavListItem = styled.li`
   margin: 0 10px;
   position: relative;
   font-size: ${fontSizes.smallish};
   counter-increment: item 1;
   &:before {
-    content: '0' counter(item) '.';
+    content: "0" counter(item) ".";
     text-align: right;
-    color: ${colors.green};
+    color: ${colors.blue};
     font-size: ${fontSizes.xsmall};
   }
-`;
+`
 const NavLink = styled(AnchorLink)`
   padding: 12px 10px;
-`;
+`
 const ResumeLink = styled.a`
   ${mixins.smallButton};
   margin-left: 10px;
   font-size: ${fontSizes.smallish};
-`;
+`
 
-const DELTA = 5;
+const DELTA = 5
 
 class Nav extends Component {
   state = {
     isMounted: false,
     menuOpen: false,
-    scrollDirection: 'none',
+    scrollDirection: "none",
     lastScrollTop: 0,
-  };
+  }
 
   componentDidMount() {
-    setTimeout(() => this.setState({ isMounted: true }), 100);
+    setTimeout(() => this.setState({ isMounted: true }), 100)
 
-    window.addEventListener('scroll', () => throttle(this.handleScroll()));
-    window.addEventListener('resize', () => throttle(this.handleResize()));
-    window.addEventListener('keydown', e => this.handleKeydown(e));
+    window.addEventListener("scroll", () => throttle(this.handleScroll()))
+    window.addEventListener("resize", () => throttle(this.handleResize()))
+    window.addEventListener("keydown", e => this.handleKeydown(e))
   }
 
   componentWillUnmount() {
-    this.setState({ isMounted: false });
+    this.setState({ isMounted: false })
 
-    window.removeEventListener('scroll', () => this.handleScroll());
-    window.removeEventListener('resize', () => this.handleResize());
-    window.removeEventListener('keydown', e => this.handleKeydown(e));
+    window.removeEventListener("scroll", () => this.handleScroll())
+    window.removeEventListener("resize", () => this.handleResize())
+    window.removeEventListener("keydown", e => this.handleKeydown(e))
   }
 
-  toggleMenu = () => this.setState({ menuOpen: !this.state.menuOpen });
+  toggleMenu = () => this.setState({ menuOpen: !this.state.menuOpen })
 
   handleScroll = () => {
-    const { isMounted, menuOpen, scrollDirection, lastScrollTop } = this.state;
-    const fromTop = window.scrollY;
+    const { isMounted, menuOpen, scrollDirection, lastScrollTop } = this.state
+    const fromTop = window.scrollY
 
     // Make sure they scroll more than DELTA
     if (!isMounted || Math.abs(lastScrollTop - fromTop) <= DELTA || menuOpen) {
-      return;
+      return
     }
 
     if (fromTop < DELTA) {
-      this.setState({ scrollDirection: 'none' });
+      this.setState({ scrollDirection: "none" })
     } else if (fromTop > lastScrollTop && fromTop > navHeight) {
-      if (scrollDirection !== 'down') {
-        this.setState({ scrollDirection: 'down' });
+      if (scrollDirection !== "down") {
+        this.setState({ scrollDirection: "down" })
       }
     } else if (fromTop + window.innerHeight < document.body.scrollHeight) {
-      if (scrollDirection !== 'up') {
-        this.setState({ scrollDirection: 'up' });
+      if (scrollDirection !== "up") {
+        this.setState({ scrollDirection: "up" })
       }
     }
 
-    this.setState({ lastScrollTop: fromTop });
-  };
+    this.setState({ lastScrollTop: fromTop })
+  }
 
   handleResize = () => {
     if (window.innerWidth > 768 && this.state.menuOpen) {
-      this.toggleMenu();
+      this.toggleMenu()
     }
-  };
+  }
 
   handleKeydown = e => {
     if (!this.state.menuOpen) {
-      return;
+      return
     }
 
-    if (e.which === 27 || e.key === 'Escape') {
-      this.toggleMenu();
+    if (e.which === 27 || e.key === "Escape") {
+      this.toggleMenu()
     }
-  };
+  }
 
   render() {
-    const { isMounted, menuOpen, scrollDirection } = this.state;
+    const { isMounted, menuOpen, scrollDirection } = this.state
 
     return (
       <NavContainer scrollDirection={scrollDirection}>
         <Helmet>
-          <body className={menuOpen ? 'blur' : ''} />
+          <body className={menuOpen ? "blur" : ""} />
         </Helmet>
         <Navbar>
           <TransitionGroup>
@@ -265,7 +272,10 @@ class Nav extends Component {
                   navLinks &&
                   navLinks.map(({ url, name }, i) => (
                     <CSSTransition key={i} classNames="fadedown" timeout={3000}>
-                      <NavListItem key={i} style={{ transitionDelay: `${i * 100}ms` }}>
+                      <NavListItem
+                        key={i}
+                        style={{ transitionDelay: `${i * 100}ms` }}
+                      >
                         <NavLink href={url}>{name}</NavLink>
                       </NavListItem>
                     </CSSTransition>
@@ -280,7 +290,8 @@ class Nav extends Component {
                     <ResumeLink
                       href="/resume.pdf"
                       target="_blank"
-                      rel="nofollow noopener noreferrer">
+                      rel="nofollow noopener noreferrer"
+                    >
                       Resume
                     </ResumeLink>
                   </div>
@@ -292,8 +303,8 @@ class Nav extends Component {
 
         <Menu menuOpen={menuOpen} toggleMenu={this.toggleMenu} />
       </NavContainer>
-    );
+    )
   }
 }
 
-export default Nav;
+export default Nav
