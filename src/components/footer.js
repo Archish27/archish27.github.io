@@ -1,18 +1,18 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
   IconGithub,
   IconLinkedin,
-  IconCodepen,
+  IconPlayStore,
   IconInstagram,
-  IconTwitter,
+  IconStackOverflow,
   IconStar,
   IconFork,
-} from "@components/icons"
-import { socialMedia } from "@config"
-import styled from "styled-components"
-import { theme, mixins, media } from "@styles"
-const { colors, fontSizes, fonts } = theme
+} from '@components/icons';
+import { socialMedia } from '@config';
+import styled from 'styled-components';
+import { theme, mixins, media } from '@styles';
+const { colors, fontSizes, fonts } = theme;
 
 const FooterContainer = styled.footer`
   ${mixins.flexCenter};
@@ -23,7 +23,7 @@ const FooterContainer = styled.footer`
   text-align: center;
   height: auto;
   min-height: 70px;
-`
+`;
 const SocialContainer = styled.div`
   color: ${colors.lightSlate};
   width: 100%;
@@ -31,26 +31,26 @@ const SocialContainer = styled.div`
   margin: 0 auto 10px;
   display: none;
   ${media.tablet`display: block;`};
-`
+`;
 const SocialItemList = styled.ul`
   ${mixins.flexBetween};
-`
+`;
 const SocialLink = styled.a`
   padding: 10px;
   svg {
     width: 20px;
     height: 20px;
   }
-`
+`;
 const Copy = styled.div`
   margin: 10px 0;
   font-family: ${fonts.SFMono};
   font-size: ${fontSizes.xsmall};
   line-height: 1;
-`
+`;
 const GithubLink = styled.a`
   color: ${colors.slate};
-`
+`;
 const GithubInfo = styled.div`
   margin-top: 10px;
 
@@ -65,7 +65,7 @@ const GithubInfo = styled.div`
     width: auto;
     margin-right: 5px;
   }
-`
+`;
 
 const Footer = ({ githubInfo }) => (
   <FooterContainer>
@@ -80,16 +80,16 @@ const Footer = ({ githubInfo }) => (
                 rel="nofollow noopener noreferrer"
                 aria-label={name}
               >
-                {name === "Github" ? (
+                {name === 'Github' ? (
                   <IconGithub />
-                ) : name === "Linkedin" ? (
+                ) : name === 'Linkedin' ? (
                   <IconLinkedin />
-                ) : name === "Codepen" ? (
-                  <IconCodepen />
-                ) : name === "Instagram" ? (
+                ) : name === 'Play Store' ? (
+                  <IconPlayStore />
+                ) : name === 'Instagram' ? (
                   <IconInstagram />
-                ) : name === "Twitter" ? (
-                  <IconTwitter />
+                ) : name === 'Stack Overflow' ? (
+                  <IconStackOverflow />
                 ) : (
                   <IconGithub />
                 )}
@@ -121,10 +121,10 @@ const Footer = ({ githubInfo }) => (
       </GithubLink>
     </Copy>
   </FooterContainer>
-)
+);
 
 Footer.propTypes = {
   githubInfo: PropTypes.object,
-}
+};
 
-export default Footer
+export default Footer;
