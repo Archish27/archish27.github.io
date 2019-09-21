@@ -8,7 +8,7 @@ tech:
   - Android
   - JS
   - Laravel
-show: "true"
+show: "false"
 ---
 
 Rakshak, was designed by keeping in mind, the current disaster management techniques already in place as suggested by the Government.
