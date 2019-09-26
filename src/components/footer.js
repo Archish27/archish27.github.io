@@ -19,7 +19,7 @@ const FooterContainer = styled.footer`
   flex-direction: column;
   padding: 15px;
   background-color: ${colors.darkestNavy};
-  color: ${colors.slate};
+  color: ${colors.lightSlate};
   text-align: center;
   height: auto;
   min-height: 70px;
