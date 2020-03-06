@@ -106,7 +106,7 @@ const Menu = ({ menuOpen, toggleMenu }) => {
               ))}
           </NavList>
           <ResumeLink
-            href="/resume.pdf"
+            href="/resume_dark.pdf"
             target="_blank"
             rel="nofollow noopener noreferrer"
           >
