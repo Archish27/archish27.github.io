@@ -4,7 +4,7 @@ module.exports = {
     'Archish Thakkar is a software engineer based in Mumbai, India who specializes in developing (and occasionally designing) exceptional, high-quality softwares, websites and applications.',
   siteKeywords:
     'Archish Thakkar, Archish, Thakkar, archish27, software engineer, front-end engineer, web developer, javascript, jpmorgan',
-  siteUrl: 'htttp://archishthakkar.in',
+  siteUrl: 'http://archishthakkar.ml',
   siteLanguage: 'en_US',
 
   googleVerification: 'DCl7VAf9tcz6eD9gb67NfkNnJ1PKRNcg8qQiwpbx9Lk',
