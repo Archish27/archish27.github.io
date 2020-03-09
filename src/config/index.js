@@ -56,7 +56,7 @@ module.exports = {
     },
   ],
 
-  googleAnalyticsID: 'UA-78946797-1',
+  googleAnalyticsID: 'UA-78946797-2',
 
   navHeight: 100,
 
