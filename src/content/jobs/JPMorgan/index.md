@@ -1,10 +1,10 @@
 ---
-date: '2018-05-14'
-title: 'Software Engineer'
-company: 'JPMorgan Chase & Co.'
-location: 'Mumbai, India'
-range: 'July 2018 - Present'
-url: 'https://jpmorgan.com/'
+date: "2018-05-14"
+title: "Software Engineer"
+company: "JPMorgan Chase & Co."
+location: "Mumbai, India"
+range: "July 2018 - March 2020"
+url: "https://jpmorgan.com/"
 ---
 
 - Developing Microservice platform to build Pre-Trade & Post-Trade activities
