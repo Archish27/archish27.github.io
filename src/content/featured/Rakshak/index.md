@@ -3,6 +3,7 @@ date: "1"
 title: "Rakshak"
 cover: "./rakshak.jpg"
 github: "https://github.com/Archish27/Rakshak"
+external: "https://play.google.com/store/apps/details?id=com.markdevelopers.rakshak&hl=en/"
 tech:
   - Java
   - Android
