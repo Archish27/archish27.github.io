@@ -1,4 +1,4 @@
-const config = require("./src/config")
+const config = require('./src/config');
 
 module.exports = {
   siteMetadata: {
@@ -16,20 +16,20 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: "ArchishThakkar",
-        short_name: "ArchishThakkar",
-        start_url: "/",
+        name: 'ArchishThakkar',
+        short_name: 'ArchishThakkar',
+        start_url: '/',
         background_color: config.darkNavyColor,
         theme_color: config.navyColor,
-        display: "minimal-ui",
-        icon: "src/images/logo.png",
+        display: 'minimal-ui',
+        icon: 'src/images/logo.png',
       },
     },
     `gatsby-plugin-offline`,
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: "content",
+        name: 'content',
         path: `${__dirname}/src/content/`,
       },
     },
@@ -38,14 +38,14 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: "gatsby-remark-external-links",
+            resolve: 'gatsby-remark-external-links',
             options: {
-              target: "_blank",
-              rel: "nofollow noopener noreferrer",
+              target: '_blank',
+              rel: 'nofollow noopener noreferrer',
             },
           },
           {
-            resolve: "gatsby-remark-images",
+            resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 1100,
               quality: 90,
@@ -62,4 +62,5 @@ module.exports = {
       },
     },
   ],
-}
+  pathPrefix: '/personal-website',
+};
