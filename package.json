@@ -1,11 +1,11 @@
 {
-  "name": "personal-website",
+  "name": "archish27.github.io",
   "description": "Archish Thakkar Personal website",
   "version": "1.0.0",
   "author": "Archish Thakkar <archishthakkar@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/archish27/personal-website"
+    "url": "https://github.com/archish27/archish27.github.io"
   },
   "keywords": [
     "gatsby"

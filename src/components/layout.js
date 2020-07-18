@@ -47,7 +47,7 @@ const Layout = ({ children }) => {
   });
 
   useEffect(() => {
-    fetch('https://api.github.com/repos/archish27/personal-website')
+    fetch('https://api.github.com/repos/archish27/archish27.github.io')
       .then(response => response.json())
       .then(json => {
         const { stargazers_count, forks_count } = json;

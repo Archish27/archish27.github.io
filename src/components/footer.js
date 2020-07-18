@@ -100,7 +100,7 @@ const Footer = ({ githubInfo }) => (
     </SocialContainer>
     <Copy>
       <GithubLink
-        href="https://github.com/archish27/personal-website"
+        href="https://github.com/archish27/archish27.github.io"
         target="_blank"
         rel="nofollow noopener noreferrer"
       >
