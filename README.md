@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://archishthakkar.ml">
+  <a href="https://archish27.github.io">
     <img alt="Archish Thakkar Logo" src="./static/logo.png" width="60" />
   </a>
 </p>
