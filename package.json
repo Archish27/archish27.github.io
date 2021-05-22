@@ -69,5 +69,8 @@
     "lint-staged": "^8.1.5",
     "prettier": "^1.17.0",
     "pretty-quick": "^1.10.0"
+  },
+  "resolutions": {
+    "minipass": "2.7.0"
   }
 }
