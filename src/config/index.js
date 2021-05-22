@@ -20,7 +20,7 @@ module.exports = {
     },
     {
       name: 'Linkedin',
-      url: 'https://in.linkedin.com/in/archish-thakkar-182556105',
+      url: 'https://www.linkedin.com/in/archish-thakkar/',
     },
     {
       name: 'Play Store',
@@ -33,7 +33,7 @@ module.exports = {
     },
     {
       name: 'Instagram',
-      url: 'https://www.instagram.com/archis_thakkar/',
+      url: 'https://www.instagram.com/archish_thakkar/',
     },
   ],
 
