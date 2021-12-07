@@ -3,7 +3,7 @@ date: "4"
 title: "Nora COVID-19 Self Awareness Bot"
 cover: "./norabot.jpg"
 github: "https://github.com/Archish27/nora-covid-19-bot"
-external: "http://norabot.ml/"
+external: "http://norabot.netlify.app/"
 tech:
   - Python
   - Rasa
