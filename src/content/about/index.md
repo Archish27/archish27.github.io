@@ -2,18 +2,19 @@
 title: "About Me 🧔🏻‍♂️"
 avatar: "./me1.jpg"
 skills:
-  - Java
-  - C/C++
-  - Python
-  - JavaScript (ES6+)
-  - Php
+  - Java - SpringBoot
+  - Python - Flask
+  - Node.js - Express, FastAPI
+  - Ruby On Rails
   - HTML & (S)CSS
   - React.js
-  - SpringBoot
   - Android
-  - Kotlin
-  - Scala
-  - Groovy
+  - K8s
+  - Ansible
+  - Terraform
+  - Docker
+  - AWS
+  
 ---
 
 Hello! I'm Archish, a software engineer based in Mumbai, India who enjoys building things that live on the internet. I develop exceptional softwares, websites and web apps that provide intuitive, pixel-perfect user interfaces with efficient and modern backends.
