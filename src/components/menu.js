@@ -16,8 +16,8 @@ const MenuContainer = styled.div`
   z-index: 10;
   outline: 0;
   transition: ${theme.transition};
-  transform: translateX(${props => (props.menuOpen ? 0 : 100)}vw);
-  visibility: ${props => (props.menuOpen ? "visible" : "hidden")};
+  transform: translateX(${(props) => (props.menuOpen ? 0 : 100)}vw);
+  visibility: ${(props) => (props.menuOpen ? "visible" : "hidden")};
   display: none;
   ${media.tablet`display: block;`};
 `
@@ -77,7 +77,7 @@ const ResumeLink = styled.a`
 `
 
 const Menu = ({ menuOpen, toggleMenu }) => {
-  const handleMenuClick = e => {
+  const handleMenuClick = (e) => {
     const target = e.target
     const isLink = target.hasAttribute("href")
     const isNotMenu =
@@ -106,7 +106,7 @@ const Menu = ({ menuOpen, toggleMenu }) => {
               ))}
           </NavList>
           <ResumeLink
-            href="/resume_dark.pdf"
+            href="/archish.pdf"
             target="_blank"
             rel="nofollow noopener noreferrer"
           >

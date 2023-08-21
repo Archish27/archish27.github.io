@@ -22,14 +22,14 @@ const NavContainer = styled.header`
   pointer-events: auto !important;
   user-select: auto !important;
   width: 100%;
-  height: ${props =>
+  height: ${(props) =>
     props.scrollDirection === "none" ? theme.navHeight : theme.navScrollHeight};
-  box-shadow: ${props =>
+  box-shadow: ${(props) =>
     props.scrollDirection === "up"
       ? `0 10px 30px -10px ${colors.darkNavy}`
       : "none"};
   transform: translateY(
-    ${props =>
+    ${(props) =>
       props.scrollDirection === "down" ? `-${theme.navScrollHeight}` : "0px"}
   );
   ${media.desktop`padding: 0 40px;`};
@@ -97,10 +97,10 @@ const HamburgerInner = styled.div`
   right: 0;
   transition-duration: 0.22s;
   transition-property: transform;
-  transition-delay: ${props => (props.menuOpen ? `0.12s` : `0s`)};
-  transform: rotate(${props => (props.menuOpen ? `225deg` : `0deg`)});
+  transition-delay: ${(props) => (props.menuOpen ? `0.12s` : `0s`)};
+  transform: rotate(${(props) => (props.menuOpen ? `225deg` : `0deg`)});
   transition-timing-function: cubic-bezier(
-    ${props =>
+    ${(props) =>
       props.menuOpen ? `0.215, 0.61, 0.355, 1` : `0.55, 0.055, 0.675, 0.19`}
   );
   &:before,
@@ -119,17 +119,17 @@ const HamburgerInner = styled.div`
     border-radius: 4px;
   }
   &:before {
-    width: ${props => (props.menuOpen ? `100%` : `120%`)};
-    top: ${props => (props.menuOpen ? `0` : `-10px`)};
-    opacity: ${props => (props.menuOpen ? 0 : 1)};
-    transition: ${props =>
+    width: ${(props) => (props.menuOpen ? `100%` : `120%`)};
+    top: ${(props) => (props.menuOpen ? `0` : `-10px`)};
+    opacity: ${(props) => (props.menuOpen ? 0 : 1)};
+    transition: ${(props) =>
       props.menuOpen ? theme.hamBeforeActive : theme.hamBefore};
   }
   &:after {
-    width: ${props => (props.menuOpen ? `100%` : `80%`)};
-    bottom: ${props => (props.menuOpen ? `0` : `-10px`)};
-    transform: rotate(${props => (props.menuOpen ? `-90deg` : `0`)});
-    transition: ${props =>
+    width: ${(props) => (props.menuOpen ? `100%` : `80%`)};
+    bottom: ${(props) => (props.menuOpen ? `0` : `-10px`)};
+    transform: rotate(${(props) => (props.menuOpen ? `-90deg` : `0`)});
+    transition: ${(props) =>
       props.menuOpen ? theme.hamAfterActive : theme.hamAfter};
   }
 `
@@ -179,7 +179,7 @@ class Nav extends Component {
 
     window.addEventListener("scroll", () => throttle(this.handleScroll()))
     window.addEventListener("resize", () => throttle(this.handleResize()))
-    window.addEventListener("keydown", e => this.handleKeydown(e))
+    window.addEventListener("keydown", (e) => this.handleKeydown(e))
   }
 
   componentWillUnmount() {
@@ -187,7 +187,7 @@ class Nav extends Component {
 
     window.removeEventListener("scroll", () => this.handleScroll())
     window.removeEventListener("resize", () => this.handleResize())
-    window.removeEventListener("keydown", e => this.handleKeydown(e))
+    window.removeEventListener("keydown", (e) => this.handleKeydown(e))
   }
 
   toggleMenu = () => this.setState({ menuOpen: !this.state.menuOpen })
@@ -222,7 +222,7 @@ class Nav extends Component {
     }
   }
 
-  handleKeydown = e => {
+  handleKeydown = (e) => {
     if (!this.state.menuOpen) {
       return
     }
@@ -288,7 +288,7 @@ class Nav extends Component {
                 <CSSTransition classNames="fadedown" timeout={3000}>
                   <div style={{ transitionDelay: `600ms` }}>
                     <ResumeLink
-                      href="/resume_dark.pdf"
+                      href="/archish.pdf"
                       target="_blank"
                       rel="nofollow noopener noreferrer"
                     >
