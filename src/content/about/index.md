@@ -1,5 +1,5 @@
 ---
-title: "About Me"
+title: "About Me 🧔🏻‍♂️"
 avatar: "./me1.jpg"
 skills:
   - Java
