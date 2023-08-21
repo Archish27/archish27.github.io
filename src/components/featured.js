@@ -207,7 +207,7 @@ const Featured = ({ data }) => {
 
   return (
     <FeaturedContainer id="projects">
-      <Heading ref={revealTitle}>Some Things I&apos;ve Built</Heading>
+      <Heading ref={revealTitle}>Some Things I&apos;ve Built 🚀</Heading>
 
       <div>
         {featuredProjects &&
@@ -216,7 +216,7 @@ const Featured = ({ data }) => {
             const { external, title, tech, github, cover } = frontmatter
 
             return (
-              <Project key={i} ref={el => (revealProjects.current[i] = el)}>
+              <Project key={i} ref={(el) => (revealProjects.current[i] = el)}>
                 <ContentContainer>
                   <FeaturedLabel>Featured Project</FeaturedLabel>
                   <ProjectName>

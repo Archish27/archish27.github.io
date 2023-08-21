@@ -62,7 +62,7 @@ const Contact = ({ data }) => {
         target="_blank"
         rel="nofollow noopener noreferrer"
       >
-        Say Hello
+        Say Hello 👋
       </EmailLink>
     </ContactContainer>
   )

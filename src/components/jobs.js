@@ -68,7 +68,7 @@ const Tab = styled.button`
   white-space: nowrap;
   font-family: ${fonts.SFMono};
   font-size: ${fontSizes.smallish};
-  color: ${props => (props.isActive ? colors.blue : colors.lightGrey)};
+  color: ${(props) => (props.isActive ? colors.blue : colors.lightGrey)};
   ${media.tablet`padding: 0 15px 2px;`};
   ${media.thone`
     ${mixins.flexCenter};
@@ -96,7 +96,7 @@ const Highlighter = styled.span`
   transition-delay: 0.1s;
   z-index: 10;
   transform: translateY(
-    ${props =>
+    ${(props) =>
       props.activeTabId > 0 ? props.activeTabId * theme.tabHeight : 0}px
   );
   ${media.thone`
@@ -106,7 +106,7 @@ const Highlighter = styled.span`
     top: auto;
     bottom: 0;
     transform: translateX(
-      ${props =>
+      ${(props) =>
         props.activeTabId > 0 ? props.activeTabId * theme.tabWidth : 0}px
     );
     margin-left: 50px;
@@ -128,12 +128,12 @@ const TabContent = styled.div`
   left: 0;
   width: 100%;
   height: auto;
-  opacity: ${props => (props.isActive ? 1 : 0)};
-  z-index: ${props => (props.isActive ? 2 : -1)};
-  position: ${props => (props.isActive ? "relative" : "absolute")};
-  visibility: ${props => (props.isActive ? "visible" : "hidden")};
+  opacity: ${(props) => (props.isActive ? 1 : 0)};
+  z-index: ${(props) => (props.isActive ? 2 : -1)};
+  position: ${(props) => (props.isActive ? "relative" : "absolute")};
+  visibility: ${(props) => (props.isActive ? "visible" : "hidden")};
   transition: ${theme.transition};
-  transition-duration: ${props => (props.isActive ? "0.5s" : "0s")};
+  transition-duration: ${(props) => (props.isActive ? "0.5s" : "0s")};
   ul {
     padding: 0;
     margin: 0;
@@ -184,7 +184,7 @@ const Jobs = ({ data }) => {
 
   return (
     <JobsContainer id="jobs" ref={revealContainer}>
-      <Heading>Where I&apos;ve Worked</Heading>
+      <Heading>Where I&apos;ve Worked 💼</Heading>
       <TabsContainer>
         <Tabs role="tablist">
           {data &&
