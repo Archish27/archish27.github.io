@@ -1,0 +1,119 @@
+{
+  "questions": [
+    {
+      "question": "In which year Middlware was founded?",
+      "options": ["2023", "2022", "2021", "2024"],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "How many products does Middleware have?",
+      "options": ["8", "12", "17", "13"],
+      "correctOption": 4,
+      "points": 10
+    },
+    {
+      "question": "What is Middleware used for?",
+      "options": [
+        "For tracking users",
+        "For monitoring",
+        "Spying on users",
+        "Observability Platform"
+      ],
+      "correctOption": 4,
+      "points": 10
+    },
+    {
+      "question": "How many followers are on LinkedIN page of middleware?",
+      "options": ["7.5K", "8K+", "7K", "God knows"],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "Who was the recent hire in Middleware.io?",
+      "options": ["Rajuji", "Mohit", "Malay", "Sagar"],
+      "correctOption": 4,
+      "points": 10
+    },
+    {
+      "question": "What happens if you don’t instrument your app with Middleware?",
+      "options": [
+        "Your app cries silently",
+        "Latency grows legs and runs away",
+        "You get haunted by unmonitored microservices",
+        "You don’t see anything — and that’s the scariest part"
+      ],
+      "correctOption": 3,
+      "points": 10
+    },
+    {
+      "question": "What technology is used in Browser Test?",
+      "options": [
+        "AWS Fargate",
+        "Azure Container Instances",
+        "GCP Worker",
+        "Cron Jobs"
+      ],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "Who has most commits in bifrost?",
+      "options": ["Rajuji", "Milan", "Kaushal", "Keval"],
+      "correctOption": 3,
+      "points": 10
+    },
+    {
+      "question": "Which product is used for improving MTTR?",
+      "options": [
+        "Log Monitoring",
+        "Real User Monitoring",
+        "APM Monitoring",
+        "Synthetic Monitoring"
+      ],
+      "correctOption": 4,
+      "points": 10
+    },
+    {
+      "question": "Which of these is not Middleware.io product?",
+      "options": [
+        "LLM Observability",
+        "Synthetic Monitoring",
+        "Cloudwatch Monitoring",
+        "Database Monitoring"
+      ],
+      "correctOption": 3,
+      "points": 10
+    },
+    {
+      "question": "Which programming language is heavily used in Middleware?",
+      "options": ["Typescript", "Go", "Javascript", "Python"],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "Which database is used for logs?",
+      "options": ["Clickhouse", "MongoDB", "Quickwit", "Cassandra"],
+      "correctOption": 3,
+      "points": 10
+    },
+    {
+      "question": "Which cloud product is used in Middleware.io for synthetic agent?",
+      "options": ["Azure Container", "AWS EC2", "Azure AKS", "Digital Ocean"],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "Which is the top visited page in Middleware website as of now?",
+      "options": ["Ops AI", "Real User Monitoring", "APM ", "Log Monitoring"],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "How many integrations Middleware supports?",
+      "options": ["57", "128", "111", "145"],
+      "correctOption": 2,
+      "points": 10
+    }
+  ]
+}
