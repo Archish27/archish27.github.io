@@ -1,7 +1,7 @@
 {
   "questions": [
     {
-      "question": "In which year Middlware was founded?",
+      "question": "In which year Middleware was founded?",
       "options": ["2023", "2022", "2021", "2024"],
       "correctOption": 1,
       "points": 10
@@ -114,6 +114,6 @@
       "options": ["57", "128", "111", "145"],
       "correctOption": 1,
       "points": 10
-    }
+    },
   ]
 }
