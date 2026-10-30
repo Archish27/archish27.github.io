@@ -696,7 +696,9 @@ dd {
   object-fit: cover;
 }
 .thermal-pair .thermal {
-  filter: url(#thermal) contrast(1.15);
+  /* Plain CSS grayscale: Safari draws nothing at all for an SVG url() filter
+     on an <img>, which left the portrait blank on iPhones. */
+  filter: grayscale(1) contrast(1.08);
 }
 .thermal-pair .real {
   position: absolute;
@@ -713,7 +715,6 @@ dd {
 }
 
 .about-copy {
-  --p: 1;
   font-size: var(--t-statement);
   font-weight: 700;
   line-height: 1.04;
@@ -721,11 +722,13 @@ dd {
   max-width: 22ch;
   text-wrap: pretty;
 }
-/* Each word owns 1/n of the scroll range and inks from --dim (still AA
-   readable) to --ink across it. */
-.about-copy .w {
-  --w: clamp(0, (var(--p) * var(--n) - var(--i)), 1);
-  color: color-mix(in srgb, var(--ink) calc(var(--w) * 100%), var(--dim));
+/* Words wait in --dim (still AA readable) and ink in as scroll reaches them. */
+.js .about-copy .w {
+  color: var(--dim);
+  transition: color 0.45s var(--ease-out);
+}
+.js .about-copy .w[data-on] {
+  color: var(--ink);
 }
 
 .about-portrait {
@@ -735,8 +738,13 @@ dd {
 .about-portrait img {
   aspect-ratio: 4 / 5;
 }
-.about-portrait:hover .real {
+.about-portrait[data-developed='true'] .real {
   opacity: 1;
+}
+@media (hover: hover) {
+  .about-portrait:hover .real {
+    opacity: 1;
+  }
 }
 .about-portrait figcaption {
   position: absolute;
@@ -885,8 +893,10 @@ dd {
     transform 1.3s var(--ease) var(--d, 0s),
     filter 0.3s;
 }
-.role:hover .role-bar {
-  filter: contrast(1.25);
+@media (hover: hover) {
+  .role:hover .role-bar {
+    filter: contrast(1.25);
+  }
 }
 
 .role-duration {
@@ -1002,9 +1012,12 @@ dd {
     font-weight 0.6s var(--ease);
   transform-origin: left;
 }
-.work-row:hover .work-title {
-  transform: translateX(0.12em);
-  font-weight: 300;
+/* Only real hover: on touch screens :hover sticks to the last row tapped. */
+@media (hover: hover) {
+  .work-row:hover .work-title {
+    transform: translateX(0.12em);
+    font-weight: 300;
+  }
 }
 
 .work-desc {

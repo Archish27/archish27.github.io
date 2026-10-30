@@ -4,7 +4,6 @@ import Smooth from './components/Smooth.jsx'
 import Recorder from './components/Recorder.jsx'
 import Heat from './components/Heat.jsx'
 import Viewfinder from './components/Viewfinder.jsx'
-import ThermalFilter from './components/ThermalFilter.jsx'
 import Marquee from './components/Marquee.jsx'
 import Cursor from './components/Cursor.jsx'
 import TopBar from './components/TopBar.jsx'
@@ -22,7 +21,6 @@ export default function App() {
     <Smooth>
       <Recorder />
       <Heat />
-      <ThermalFilter />
       <div className="boot" aria-hidden="true">
         <p className="boot-text">Calibrating sensor</p>
         <p className="boot-count" />
