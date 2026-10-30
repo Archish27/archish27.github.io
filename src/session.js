@@ -16,7 +16,7 @@ export const session = {
 }
 
 // Latest pointer and pending clicks, read by the heat field every frame.
-export const pointer = { x: 0, y: 0, active: false }
+export const pointer = { x: 0, y: 0, t: 0, active: false }
 export const clickQueue = []
 
 // Written by the heat field each frame: where heat is being laid down right
@@ -57,6 +57,7 @@ export function startRecording() {
     const { clientX: x, clientY: y } = e
     pointer.x = x
     pointer.y = y
+    pointer.t = performance.now()
     pointer.active = true
     if (!session.live) {
       session.live = true

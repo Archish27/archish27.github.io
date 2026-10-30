@@ -188,7 +188,7 @@ export default function Replay() {
         millions of them, so teams can see where people struggle.
       </p>
       <div className="replay-grid">
-        <canvas ref={canvasRef} className="replay-canvas" width={W} height={H} aria-label="Drawing of your cursor path on this page" />
+        <canvas ref={canvasRef} className="replay-canvas" width={W} height={H} role="img" aria-label="Drawing of your cursor path on this page" />
         <div className="replay-side">
           <dl className="replay-stats">
             {(rows || stats.placeholder).map(([k, v]) => (

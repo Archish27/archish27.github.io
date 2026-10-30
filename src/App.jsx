@@ -1,4 +1,5 @@
 import React from 'react'
+import { LazyMotion, domAnimation } from 'framer-motion'
 import Smooth from './components/Smooth.jsx'
 import Recorder from './components/Recorder.jsx'
 import Heat from './components/Heat.jsx'
@@ -17,6 +18,7 @@ import Footer from './components/Footer.jsx'
 
 export default function App() {
   return (
+    <LazyMotion features={domAnimation} strict>
     <Smooth>
       <Recorder />
       <Heat />
@@ -42,5 +44,6 @@ export default function App() {
       <Viewfinder />
       <Cursor />
     </Smooth>
+    </LazyMotion>
   )
 }

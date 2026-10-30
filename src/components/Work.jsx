@@ -1,20 +1,20 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { AnimatePresence, motion, useMotionValue, useSpring, useTransform, useVelocity } from 'framer-motion'
+import { AnimatePresence, m, useMotionValue, useSpring, useTransform, useVelocity } from 'framer-motion'
 import { featured, archive } from '../data/work.js'
 
 // A list of big titles. On a fine pointer, the project's image follows the
 // cursor and leans into the direction of travel; on touch it sits inline.
-function Preview({ active, x, y }) {
+function Preview({ active, below, x, y }) {
   const sx = useSpring(x, { stiffness: 260, damping: 28, mass: 0.6 })
   const sy = useSpring(y, { stiffness: 260, damping: 28, mass: 0.6 })
   const vx = useVelocity(sx)
   const rotate = useTransform(vx, [-2500, 2500], [-9, 9], { clamp: true })
 
   return (
-    <motion.div className="preview" style={{ x: sx, y: sy, rotate }} aria-hidden="true">
+    <m.div className="preview" data-below={below} style={{ x: sx, y: sy, rotate }} aria-hidden="true">
       <AnimatePresence>
         {active != null && (
-          <motion.div
+          <m.div
             key="frame"
             className="preview-frame"
             initial={{ scale: 0.6, opacity: 0 }}
@@ -28,15 +28,19 @@ function Preview({ active, x, y }) {
                 <img className="real" src={p.image} alt="" decoding="async" />
               </div>
             ))}
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
-    </motion.div>
+    </m.div>
   )
 }
 
 export default function Work() {
   const [active, setActive] = useState(null)
+  // The preview floats above the cursor so it never covers the title being
+  // read; near the top of the screen it flips below instead.
+  const [below, setBelow] = useState(false)
+  const belowRef = useRef(false)
   const x = useMotionValue(0)
   const y = useMotionValue(0)
   const listRef = useRef(null)
@@ -56,6 +60,11 @@ export default function Work() {
     if (e.pointerType !== 'mouse') return
     x.set(e.clientX)
     y.set(e.clientY)
+    const b = e.clientY < window.innerHeight * 0.4
+    if (b !== belowRef.current) {
+      belowRef.current = b
+      setBelow(b)
+    }
   }
 
   return (
@@ -88,7 +97,7 @@ export default function Work() {
           </li>
         ))}
       </ul>
-      <Preview active={active} x={x} y={y} />
+      <Preview active={active} below={below} x={x} y={y} />
 
       <div className="also">
         <h3>Also on GitHub</h3>

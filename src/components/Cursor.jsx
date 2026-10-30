@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { motion, useMotionValue, useSpring } from 'framer-motion'
+import { m, useMotionValue, useSpring } from 'framer-motion'
 import { probe } from '../session.js'
 
 // A thermal camera's spot meter: crosshair plus the temperature under it.
@@ -59,13 +59,13 @@ export default function Cursor() {
   if (!enabled) return null
 
   return (
-    <motion.div className="cursor" data-mode={mode} style={{ x: sx, y: sy }} aria-hidden="true">
+    <m.div className="cursor" data-mode={mode} style={{ x: sx, y: sy }} aria-hidden="true">
       <span className="cursor-box" />
       <span className="cursor-h" />
       <span className="cursor-v" />
       <span className="cursor-label" ref={label}>
         22.0°
       </span>
-    </motion.div>
+    </m.div>
   )
 }

@@ -1,9 +1,9 @@
-import rakshak from '../assets/rakshak.jpg'
-import codebook from '../assets/codebook.jpg'
-import hyperdroid from '../assets/hyperdroid.jpg'
-import archishEnterprises from '../assets/archish-enterprises.jpg'
-import norabot from '../assets/norabot.jpg'
-import decaptcha from '../assets/decaptcha.jpg'
+import rakshak from '../assets/rakshak.webp'
+import codebook from '../assets/codebook.webp'
+import hyperdroid from '../assets/hyperdroid.webp'
+import archishEnterprises from '../assets/archish-enterprises.webp'
+import norabot from '../assets/norabot.webp'
+import decaptcha from '../assets/decaptcha.webp'
 
 export const featured = [
   {

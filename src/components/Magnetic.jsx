@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { motion, useMotionValue, useSpring } from 'framer-motion'
+import { m, useMotionValue, useSpring } from 'framer-motion'
 
 // Pulls its child a little toward the pointer while it is nearby.
 export default function Magnetic({ children, strength = 0.35 }) {
@@ -21,8 +21,8 @@ export default function Magnetic({ children, strength = 0.35 }) {
   }
 
   return (
-    <motion.div ref={ref} className="magnetic" style={{ x: sx, y: sy }} onPointerMove={onMove} onPointerLeave={onLeave}>
+    <m.div ref={ref} className="magnetic" style={{ x: sx, y: sy }} onPointerMove={onMove} onPointerLeave={onLeave}>
       {children}
-    </motion.div>
+    </m.div>
   )
 }

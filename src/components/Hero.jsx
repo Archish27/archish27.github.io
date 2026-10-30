@@ -35,6 +35,8 @@ function useHeatWeight(ref) {
     })
     io.observe(ref.current)
 
+    const shown = letters.map(() => THIN)
+    let dirty = false
     let frames = 0
     const tick = () => {
       raf = 0
@@ -50,10 +52,20 @@ function useHeatWeight(ref) {
         // Swell fast, cool slowly.
         const rate = target > weights[i] ? 0.22 : 0.035
         weights[i] += (target - weights[i]) * rate
-        el.style.fontVariationSettings = `'wght' ${weights[i].toFixed(0)}`
+        // Only touch the DOM when the rounded weight actually changes.
+        const w = Math.round(weights[i])
+        if (w !== shown[i]) {
+          shown[i] = w
+          el.style.fontVariationSettings = `'wght' ${w}`
+          dirty = true
+        }
       })
-      // Re-measure now and then: swelling letters push their neighbours along.
-      if (++frames % 20 === 0) measure()
+      // Swelling letters push their neighbours along, so re-measure now and
+      // then, but only after something moved.
+      if (dirty && ++frames % 20 === 0) {
+        measure()
+        dirty = false
+      }
       raf = requestAnimationFrame(tick)
     }
     raf = requestAnimationFrame(tick)

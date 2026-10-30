@@ -36,7 +36,7 @@ export default function Footer() {
       </div>
       <p className="footer-col">
         {site.city}, India
-        <br />© {new Date().getFullYear()} {site.name}
+        <br />© <span suppressHydrationWarning>{new Date().getFullYear()}</span> {site.name}
       </p>
     </footer>
   )

@@ -22,7 +22,7 @@ export default function EventStream() {
   }, [])
 
   return (
-    <div className="stream" aria-label="Live events from your visit">
+    <div className="stream">
       <p className="stream-head">
         <span className="rec-dot" aria-hidden="true" />
         {live ? 'Live view of your visit' : 'Demo visitor. Move to take over.'}

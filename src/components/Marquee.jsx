@@ -17,6 +17,17 @@ export default function Marquee() {
     let dir = -1
     let raf = 0
     let last = performance.now()
+    const start = () => {
+      if (raf) return
+      last = performance.now()
+      raf = requestAnimationFrame(tick)
+    }
+    const stop = () => {
+      cancelAnimationFrame(raf)
+      raf = 0
+    }
+    const io = new IntersectionObserver(([e]) => (e.isIntersecting ? start() : stop()))
+    io.observe(track.current)
     const tick = (now) => {
       const dt = Math.min(0.05, (now - last) / 1000)
       last = now
@@ -29,8 +40,10 @@ export default function Marquee() {
       track.current.style.transform = `translate3d(${x}px,0,0) skewX(${Math.max(-12, Math.min(12, -v * 0.6))}deg)`
       raf = requestAnimationFrame(tick)
     }
-    raf = requestAnimationFrame(tick)
-    return () => cancelAnimationFrame(raf)
+    return () => {
+      io.disconnect()
+      stop()
+    }
   }, [])
 
   const run = (key) =>
@@ -42,7 +55,7 @@ export default function Marquee() {
     ))
 
   return (
-    <div className="marquee" aria-label={ITEMS.join(', ')}>
+    <div className="marquee" role="marquee" aria-label={ITEMS.join(', ')}>
       <div className="mq-track" ref={track} aria-hidden="true">
         {run('a')}
         {run('b')}

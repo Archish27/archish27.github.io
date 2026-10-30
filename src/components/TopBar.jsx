@@ -24,7 +24,7 @@ export default function TopBar() {
       <a className="topbar-name" href="#top">
         {site.name}
       </a>
-      <p className="topbar-rec" aria-label="Time on this page">
+      <p className="topbar-rec">
         <span className="rec-dot" aria-hidden="true" />
         Rec <time suppressHydrationWarning>{ms == null ? '00:00' : clock(ms)}</time>
       </p>
