@@ -7,6 +7,9 @@ import './styles/global.css'
 // Scroll reveals are gated on this class: without JS everything is simply visible.
 document.documentElement.classList.add('js')
 
+// This site has no service worker; drop any left over from the old one.
+navigator.serviceWorker?.getRegistrations().then((regs) => regs.forEach((reg) => reg.unregister()))
+
 const root = document.getElementById('root')
 if (root.children.length) {
   // A transition lets React hydrate in slices and yield to the browser,
