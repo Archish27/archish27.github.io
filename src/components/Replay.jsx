@@ -74,7 +74,7 @@ let RULE = '#333'
 
 function caption(ctx, left) {
   ctx.fillStyle = INK
-  ctx.font = '500 30px "Cabinet Grotesk", sans-serif'
+  ctx.font = '500 30px Satoshi, sans-serif'
   ctx.textAlign = 'left'
   ctx.fillText(left, PAD, H - 26)
   ctx.textAlign = 'right'
@@ -105,10 +105,10 @@ function draw(ctx, progress, paper) {
   const scrolls = session.scrolls
   if (scrolls.length < 2) {
     ctx.fillStyle = DIM
-    ctx.font = '600 56px "Cabinet Grotesk", sans-serif'
+    ctx.font = '600 56px Satoshi, sans-serif'
     ctx.textAlign = 'center'
     ctx.fillText('Not much to replay yet.', W / 2, H / 2 - 10)
-    ctx.font = '500 40px "Cabinet Grotesk", sans-serif'
+    ctx.font = '500 40px Satoshi, sans-serif'
     ctx.fillText('Wander around the page, then come back.', W / 2, H / 2 + 50)
     return
   }

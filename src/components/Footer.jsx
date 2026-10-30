@@ -32,7 +32,7 @@ export default function Footer() {
           </a>
         </p>
         <p>A thermal camera pointed at your visit. Built with React, WebGL, Lenis and Framer Motion.</p>
-        <p>Set in Cabinet Grotesk and JetBrains Mono.</p>
+        <p>Set in Satoshi and Geist Mono.</p>
       </div>
       <p className="footer-col">
         {site.city}, India

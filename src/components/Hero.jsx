@@ -4,7 +4,7 @@ import { site } from '../data/site.js'
 import { driver } from '../session.js'
 
 const LINES = ['Archish', 'Thakkar']
-const THIN = 260
+const THIN = 300 // Satoshi's lightest weight
 const HEAVY = 900
 const REACH = 300 // px within which a letter feels the heat
 

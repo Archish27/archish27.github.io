@@ -25,8 +25,8 @@
   --accent-2: var(--soft);
   --glass: color-mix(in srgb, var(--paper) 52%, transparent);
 
-  --sans: 'Cabinet Grotesk', 'Helvetica Neue', Arial, sans-serif;
-  --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --sans: 'Satoshi', 'Helvetica Neue', Arial, sans-serif;
+  --mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
   --t-xs: 0.75rem;
   --t-sm: 0.9375rem;
@@ -246,7 +246,7 @@ dd {
 }
 .boot-count {
   font-size: clamp(4rem, 14vw, 11rem);
-  font-weight: 200;
+  font-weight: 300;
   letter-spacing: -0.05em;
   line-height: 1;
   font-variant-numeric: tabular-nums;
@@ -488,9 +488,9 @@ dd {
 .hero-title {
   align-self: center;
   font-size: var(--t-hero);
-  font-weight: 260;
-  line-height: 0.84;
-  letter-spacing: -0.05em;
+  font-weight: 300;
+  line-height: 0.86;
+  letter-spacing: -0.045em;
   margin-left: -0.04em;
 }
 /* Brushed chrome: each line carries its own gradient so the light falls the
@@ -654,7 +654,7 @@ dd {
 .mq-outline {
   color: transparent;
   -webkit-text-stroke: 1px var(--ink);
-  font-weight: 200;
+  font-weight: 300;
 }
 .mq-dot {
   display: inline-block;
